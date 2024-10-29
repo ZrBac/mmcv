@@ -11,6 +11,7 @@ void points_in_boxes_part_forward_impl_npu(int batch_size, int boxes_num,
   auto boxes_trans = boxes.transpose(1, 2).contiguous();
   EXEC_NPU_CMD(aclnnPointsInBox, boxes_trans, pts, box_idx_of_points);
 }
+
 void points_in_boxes_part_forward_impl(int batch_size, int boxes_num,
                                        int pts_num, const Tensor boxes,
                                        const Tensor pts,
